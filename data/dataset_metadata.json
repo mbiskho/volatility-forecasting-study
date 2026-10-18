@@ -1,0 +1,29 @@
+{
+  "dataset": "synthetic_returns.csv",
+  "observations": 900,
+  "seed": 8831,
+  "return_model": "Independent zero-mean Gaussian daily simple returns within fixed-volatility blocks",
+  "segments": [
+    {
+      "observations": 180,
+      "daily_standard_deviation": 0.007
+    },
+    {
+      "observations": 180,
+      "daily_standard_deviation": 0.022
+    },
+    {
+      "observations": 180,
+      "daily_standard_deviation": 0.01
+    },
+    {
+      "observations": 180,
+      "daily_standard_deviation": 0.028
+    },
+    {
+      "observations": 180,
+      "daily_standard_deviation": 0.009
+    }
+  ],
+  "limitations": "Artificial volatility blocks; no real market observations or estimated parameters. Gaussian tails and abrupt changes are simplifications."
+}

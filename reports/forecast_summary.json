@@ -1,0 +1,44 @@
+{
+  "calibration_observations": 250,
+  "out_of_sample_observations": 650,
+  "rolling_window_observations": 20,
+  "forecast_horizon": "one trading day",
+  "loss_target": "squared daily return as a noisy proxy for latent daily variance",
+  "losses": {
+    "squared_return_loss": "mean((r_t^2 - h_t)^2)",
+    "qlike": "mean(log(h_t) + r_t^2 / h_t); lower is better"
+  },
+  "annualization": "Annualized volatility = sqrt(daily variance * 252); loss values use daily units.",
+  "variance_floor": 1e-12,
+  "metrics": {
+    "rolling": {
+      "mean_squared_return_loss": 3.981055185431037e-07,
+      "mean_qlike": -7.3291229384574,
+      "mean_annualized_volatility": 0.2649909298456281,
+      "forecast_bias_vs_squared_return": 6.723417403599387e-06,
+      "correlation_with_squared_return": 0.35924987709044176,
+      "fraction_of_days_squared_return_below_forecast": 0.6707692307692308
+    },
+    "reference": {
+      "mean_squared_return_loss": 4.7902140759944e-07,
+      "mean_qlike": -6.736062207004789,
+      "mean_annualized_volatility": 0.21232041969449658,
+      "forecast_bias_vs_squared_return": -0.00015969117090511005,
+      "correlation_with_squared_return": null,
+      "fraction_of_days_squared_return_below_forecast": 0.6446153846153846
+    }
+  },
+  "paired_loss_comparison_rolling_vs_reference": {
+    "mean_squared_return_loss": {
+      "absolute_reduction": 8.091588905633624e-08,
+      "relative_reduction_fraction": 0.16891915011029843,
+      "rolling_better_fraction_of_days": 0.5984615384615385
+    },
+    "mean_qlike": {
+      "absolute_reduction": 0.5930607314526108,
+      "relative_reduction_fraction": 0.08804264468280752,
+      "rolling_better_fraction_of_days": 0.6076923076923076
+    }
+  },
+  "interpretation": "Synthetic out-of-sample benchmark comparison only. Squared returns are noisy variance proxies; no claim of forecasting skill on real markets."
+}
